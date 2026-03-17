@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace WebApi_video.Enums
 {
     /// <summary>
     /// Enumeração dos departamentos disponíveis na organização.
     /// </summary>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DepartamentoEnum
     {
         /// <summary>

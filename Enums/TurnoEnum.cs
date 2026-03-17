@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel;
+using System.Text.Json.Serialization;
 
 namespace WebApi_video.Enums
 {
     /// <summary>
     /// Enumeração dos turnos de trabalho disponíveis.
     /// </summary>
+    [JsonConverter(typeof(JsonStringEnumConverter))] 
     public enum TurnoEnum
     {
         /// <summary>

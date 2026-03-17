@@ -1,10 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi_video.DataContext;
+using WebApi_video.Service.FuncionarioService;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 
+builder.Services.AddScoped<IFuncionarioInterface, FuncionarioService>();
 builder.Services.AddControllers();
 // Adiciona o Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -22,6 +23,7 @@ if (app.Environment.IsDevelopment())
     // Habilita o Swagger no ambiente de desenvolvimento
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.MapGet("/", () => Results.Redirect("/swagger/index.html"));
 }
 
 app.UseHttpsRedirection();
